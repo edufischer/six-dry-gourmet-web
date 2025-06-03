@@ -34,13 +34,11 @@ const Hero = () => {
         </p>
         
         <button 
-          className="text-zinc-950 font-bold px-8 py-4 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+          className="text-zinc-950 font-bold px-8 py-4 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 hover:opacity-90 shadow-lg"
           style={{ 
             background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`,
             boxShadow: '0 4px 6px rgba(181, 109, 87, 0.2)'
           }}
-          onMouseEnter={(e) => e.target.style.background = `linear-gradient(to right, #A4513E, #B56D57, #E1B8A5)`}
-          onMouseLeave={(e) => e.target.style.background = `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`}
         >
           Conheça a Linha Dry Aged
         </button>

@@ -48,7 +48,7 @@ const Footer = () => {
             <div className="flex space-x-4 mb-6">
               <button
                 onClick={handleInstagram}
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:opacity-90"
                 style={{ 
                   background: `linear-gradient(135deg, #B56D57, #E1B8A5, #A4513E)`,
                   boxShadow: '0 4px 6px rgba(181, 109, 87, 0.2)'
@@ -57,7 +57,7 @@ const Footer = () => {
                 <Instagram className="w-5 h-5 text-zinc-950" />
               </button>
             </div>
-            <a href="#" className="text-zinc-400 transition-colors duration-300 text-sm" style={{ '&:hover': { color: '#B56D57' } }}>
+            <a href="#" className="text-zinc-400 transition-colors duration-300 text-sm hover:text-[#B56D57]">
               Política de Privacidade
             </a>
           </div>

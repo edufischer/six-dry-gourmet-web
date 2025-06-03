@@ -32,10 +32,7 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-zinc-300 transition-colors duration-300"
-                style={{ '&:hover': { color: '#B56D57' } }}
-                onMouseEnter={(e) => e.target.style.color = '#B56D57'}
-                onMouseLeave={(e) => e.target.style.color = '#d4d4d8'}
+                className="text-zinc-300 transition-colors duration-300 hover:text-[#B56D57]"
               >
                 {item.name}
               </a>
@@ -45,13 +42,11 @@ const Header = () => {
           {/* CTA Button */}
           <button
             onClick={handleWhatsApp}
-            className="hidden md:block text-zinc-950 font-semibold px-6 py-2 rounded-lg transition-all duration-300 shadow-lg"
+            className="hidden md:block text-zinc-950 font-semibold px-6 py-2 rounded-lg transition-all duration-300 shadow-lg hover:opacity-90"
             style={{ 
               background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`,
               boxShadow: '0 4px 6px rgba(181, 109, 87, 0.2)'
             }}
-            onMouseEnter={(e) => e.target.style.background = `linear-gradient(to right, #A4513E, #B56D57, #E1B8A5)`}
-            onMouseLeave={(e) => e.target.style.background = `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`}
           >
             Peça Agora
           </button>
@@ -73,10 +68,7 @@ const Header = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-zinc-300 transition-colors duration-300"
-                  style={{ '&:hover': { color: '#B56D57' } }}
-                  onMouseEnter={(e) => e.target.style.color = '#B56D57'}
-                  onMouseLeave={(e) => e.target.style.color = '#d4d4d8'}
+                  className="text-zinc-300 transition-colors duration-300 hover:text-[#B56D57]"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
