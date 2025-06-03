@@ -24,13 +24,13 @@ const Products = () => {
   ];
 
   return (
-    <section id="loja" className="py-20 bg-black">
+    <section id="loja" className="py-20 bg-zinc-950">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Nossas <span className="text-amber-400">Linhas</span>
+            Nossas <span className="text-yellow-500">Linhas</span>
           </h2>
-          <p className="text-xl text-gray-300">
+          <p className="text-xl text-zinc-300">
             Descubra a excelência em cada corte
           </p>
         </div>
@@ -38,17 +38,17 @@ const Products = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product, index) => (
             <div key={index} className="group cursor-pointer">
-              <div className="relative overflow-hidden rounded-lg bg-gray-800 border border-amber-600/20 hover:border-amber-600/40 transition-all duration-300">
+              <div className="relative overflow-hidden rounded-lg bg-zinc-900 border border-yellow-600/20 hover:border-yellow-500/40 transition-all duration-300 shadow-lg shadow-zinc-950/50">
                 <div 
                   className="h-64 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                   style={{ backgroundImage: `url('${product.image}')` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent" />
                 
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-xl font-bold text-white mb-2">{product.title}</h3>
-                  <p className="text-gray-300 text-sm mb-4">{product.description}</p>
-                  <button className="bg-amber-600 hover:bg-amber-500 text-black font-semibold px-4 py-2 rounded transition-colors duration-300">
+                  <p className="text-zinc-300 text-sm mb-4">{product.description}</p>
+                  <button className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-zinc-950 font-semibold px-4 py-2 rounded transition-all duration-300 shadow-lg shadow-yellow-600/20">
                     Ver cortes
                   </button>
                 </div>
