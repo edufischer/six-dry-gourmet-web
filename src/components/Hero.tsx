@@ -15,6 +15,15 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        {/* Logo */}
+        <div className="mb-8">
+          <img 
+            src="/lovable-uploads/6a6e66c6-fccf-4535-87e8-8c2f373d38a0.png" 
+            alt="Six Dry Aged Logo" 
+            className="mx-auto max-w-xs md:max-w-sm lg:max-w-md h-auto"
+          />
+        </div>
+        
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
           Onde o sabor encontra a{' '}
           <span className="text-amber-400">perfeição</span>
