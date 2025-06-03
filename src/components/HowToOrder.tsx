@@ -34,7 +34,7 @@ const HowToOrder = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Como <span className="bg-gradient-to-r from-amber-600 via-rose-400 to-orange-300 bg-clip-text text-transparent">Pedir</span>
+            Como <span style={{ background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Pedir</span>
           </h2>
           <p className="text-xl text-zinc-300">
             Processo simples e rápido para você
@@ -45,11 +45,11 @@ const HowToOrder = () => {
           {steps.map((step, index) => (
             <div key={index} className="text-center">
               <div className="relative mb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-amber-600 via-rose-400 to-orange-300 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-amber-600/20">
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto shadow-lg" style={{ background: `linear-gradient(135deg, #B56D57, #E1B8A5, #A4513E)`, boxShadow: '0 4px 6px rgba(181, 109, 87, 0.2)' }}>
                   <step.icon className="w-10 h-10 text-zinc-950" />
                 </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-zinc-900 border-2 border-amber-500 rounded-full flex items-center justify-center">
-                  <span className="text-amber-500 font-bold text-sm">{index + 1}</span>
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-zinc-900 border-2 rounded-full flex items-center justify-center" style={{ borderColor: '#B56D57' }}>
+                  <span className="font-bold text-sm" style={{ color: '#B56D57' }}>{index + 1}</span>
                 </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
@@ -61,7 +61,11 @@ const HowToOrder = () => {
         <div className="text-center">
           <button
             onClick={handleWhatsApp}
-            className="bg-gradient-to-r from-amber-600 via-rose-400 to-orange-300 hover:from-amber-700 hover:via-rose-500 hover:to-orange-400 text-zinc-950 font-bold px-8 py-4 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-amber-600/20"
+            className="text-zinc-950 font-bold px-8 py-4 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+            style={{ 
+              background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`,
+              boxShadow: '0 4px 6px rgba(181, 109, 87, 0.2)'
+            }}
           >
             Fazer Pedido
           </button>

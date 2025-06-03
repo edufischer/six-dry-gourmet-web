@@ -18,11 +18,11 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/95 backdrop-blur-md border-b border-amber-600/20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/95 backdrop-blur-md border-b" style={{ borderColor: '#B56D57' }}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-2xl font-bold bg-gradient-to-r from-amber-600 via-rose-400 to-orange-300 bg-clip-text text-transparent">
+          <div className="text-2xl font-bold" style={{ background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
             Six Dry Aged
           </div>
 
@@ -32,7 +32,10 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-zinc-300 hover:text-amber-400 transition-colors duration-300"
+                className="text-zinc-300 transition-colors duration-300"
+                style={{ '&:hover': { color: '#B56D57' } }}
+                onMouseEnter={(e) => e.target.style.color = '#B56D57'}
+                onMouseLeave={(e) => e.target.style.color = '#d4d4d8'}
               >
                 {item.name}
               </a>
@@ -42,7 +45,13 @@ const Header = () => {
           {/* CTA Button */}
           <button
             onClick={handleWhatsApp}
-            className="hidden md:block bg-gradient-to-r from-amber-600 via-rose-400 to-orange-300 hover:from-amber-700 hover:via-rose-500 hover:to-orange-400 text-zinc-950 font-semibold px-6 py-2 rounded-lg transition-all duration-300 shadow-lg shadow-amber-600/20"
+            className="hidden md:block text-zinc-950 font-semibold px-6 py-2 rounded-lg transition-all duration-300 shadow-lg"
+            style={{ 
+              background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`,
+              boxShadow: '0 4px 6px rgba(181, 109, 87, 0.2)'
+            }}
+            onMouseEnter={(e) => e.target.style.background = `linear-gradient(to right, #A4513E, #B56D57, #E1B8A5)`}
+            onMouseLeave={(e) => e.target.style.background = `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`}
           >
             Peça Agora
           </button>
@@ -58,13 +67,16 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-amber-600/20">
+          <div className="md:hidden mt-4 py-4 border-t" style={{ borderColor: '#B56D57' }}>
             <nav className="flex flex-col space-y-4">
               {menuItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-zinc-300 hover:text-amber-400 transition-colors duration-300"
+                  className="text-zinc-300 transition-colors duration-300"
+                  style={{ '&:hover': { color: '#B56D57' } }}
+                  onMouseEnter={(e) => e.target.style.color = '#B56D57'}
+                  onMouseLeave={(e) => e.target.style.color = '#d4d4d8'}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -72,7 +84,11 @@ const Header = () => {
               ))}
               <button
                 onClick={handleWhatsApp}
-                className="bg-gradient-to-r from-amber-600 via-rose-400 to-orange-300 hover:from-amber-700 hover:via-rose-500 hover:to-orange-400 text-zinc-950 font-semibold px-6 py-2 rounded-lg transition-all duration-300 w-fit shadow-lg shadow-amber-600/20"
+                className="text-zinc-950 font-semibold px-6 py-2 rounded-lg transition-all duration-300 w-fit shadow-lg"
+                style={{ 
+                  background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`,
+                  boxShadow: '0 4px 6px rgba(181, 109, 87, 0.2)'
+                }}
               >
                 Peça Agora
               </button>

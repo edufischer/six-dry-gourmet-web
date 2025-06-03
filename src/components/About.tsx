@@ -25,7 +25,7 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-            Sobre a <span className="bg-gradient-to-r from-amber-600 via-rose-400 to-orange-300 bg-clip-text text-transparent">Six Dry Aged</span>
+            Sobre a <span style={{ background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Six Dry Aged</span>
           </h2>
           
           <p className="text-lg text-zinc-300 leading-relaxed">
@@ -37,8 +37,8 @@ const About = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="text-center p-8 bg-zinc-950/60 rounded-lg border border-amber-600/20 hover:border-rose-400/40 transition-all duration-300 backdrop-blur-sm">
-              <div className="w-16 h-16 bg-gradient-to-br from-amber-600 via-rose-400 to-orange-300 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-amber-600/20">
+            <div key={index} className="text-center p-8 bg-zinc-950/60 rounded-lg border transition-all duration-300 backdrop-blur-sm" style={{ borderColor: 'rgba(181, 109, 87, 0.2)' }}>
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg" style={{ background: `linear-gradient(135deg, #B56D57, #E1B8A5, #A4513E)`, boxShadow: '0 4px 6px rgba(181, 109, 87, 0.2)' }}>
                 <feature.icon className="w-8 h-8 text-zinc-950" />
               </div>
               <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
