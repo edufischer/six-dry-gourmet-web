@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Products from '../components/Products';
+import Shop from '../components/Shop';
 import Sustainability from '../components/Sustainability';
 import HowToOrder from '../components/HowToOrder';
 import Location from '../components/Location';
@@ -34,12 +35,15 @@ const Index = () => {
             <Products />
           </RevealAnimation>
           <RevealAnimation direction="right" delay={0.1}>
+            <Shop />
+          </RevealAnimation>
+          <RevealAnimation direction="left" delay={0.1}>
             <Sustainability />
           </RevealAnimation>
           <RevealAnimation direction="up" delay={0.2}>
             <HowToOrder />
           </RevealAnimation>
-          <RevealAnimation direction="left" delay={0.1}>
+          <RevealAnimation direction="right" delay={0.1}>
             <Location />
           </RevealAnimation>
           <Footer />
