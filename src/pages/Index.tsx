@@ -11,31 +11,41 @@ import AnimatedBackground from '../components/AnimatedBackground';
 import ScrollProgress from '../components/ScrollProgress';
 import BackToTop from '../components/BackToTop';
 import RevealAnimation from '../components/RevealAnimation';
+import LoadingScreen from '../components/LoadingScreen';
+import { usePreloader } from '../hooks/usePreloader';
 
 const Index = () => {
+  const { isLoading, progress } = usePreloader();
+
   return (
     <div className="min-h-screen bg-zinc-950">
-      <AnimatedBackground />
-      <ScrollProgress />
-      <Header />
-      <Hero />
-      <RevealAnimation direction="up" delay={0.2}>
-        <About />
-      </RevealAnimation>
-      <RevealAnimation direction="left" delay={0.1}>
-        <Products />
-      </RevealAnimation>
-      <RevealAnimation direction="right" delay={0.1}>
-        <Sustainability />
-      </RevealAnimation>
-      <RevealAnimation direction="up" delay={0.2}>
-        <HowToOrder />
-      </RevealAnimation>
-      <RevealAnimation direction="left" delay={0.1}>
-        <Location />
-      </RevealAnimation>
-      <Footer />
-      <BackToTop />
+      <LoadingScreen isLoading={isLoading} progress={progress} />
+      
+      {!isLoading && (
+        <>
+          <AnimatedBackground />
+          <ScrollProgress />
+          <Header />
+          <Hero />
+          <RevealAnimation direction="up" delay={0.2}>
+            <About />
+          </RevealAnimation>
+          <RevealAnimation direction="left" delay={0.1}>
+            <Products />
+          </RevealAnimation>
+          <RevealAnimation direction="right" delay={0.1}>
+            <Sustainability />
+          </RevealAnimation>
+          <RevealAnimation direction="up" delay={0.2}>
+            <HowToOrder />
+          </RevealAnimation>
+          <RevealAnimation direction="left" delay={0.1}>
+            <Location />
+          </RevealAnimation>
+          <Footer />
+          <BackToTop />
+        </>
+      )}
     </div>
   );
 };
