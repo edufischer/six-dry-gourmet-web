@@ -1,12 +1,11 @@
-
 import { useEffect, useRef } from 'react';
 import { useScrollAnimation, useParallax } from '../hooks/useScrollAnimations';
 
 const Hero = () => {
-  const titleRef = useScrollAnimation({ animationClass: 'animate-fade-in', delay: 300 });
-  const subtitleRef = useScrollAnimation({ animationClass: 'animate-fade-in', delay: 600 });
-  const buttonRef = useScrollAnimation({ animationClass: 'animate-fade-in', delay: 900 });
-  const backgroundRef = useParallax(0.3);
+  const titleRef = useScrollAnimation<HTMLHeadingElement>({ animationClass: 'animate-fade-in', delay: 300 });
+  const subtitleRef = useScrollAnimation<HTMLParagraphElement>({ animationClass: 'animate-fade-in', delay: 600 });
+  const buttonRef = useScrollAnimation<HTMLButtonElement>({ animationClass: 'animate-fade-in', delay: 900 });
+  const backgroundRef = useParallax<HTMLDivElement>(0.3);
   const logoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -107,7 +106,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-20px); }

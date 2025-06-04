@@ -1,10 +1,9 @@
-
 import { Award, Leaf, Star } from 'lucide-react';
 import { useScrollAnimation, use3DHover } from '../hooks/useScrollAnimations';
 
 const About = () => {
-  const titleRef = useScrollAnimation({ animationClass: 'animate-fade-in' });
-  const descriptionRef = useScrollAnimation({ animationClass: 'animate-fade-in', delay: 200 });
+  const titleRef = useScrollAnimation<HTMLHeadingElement>({ animationClass: 'animate-fade-in' });
+  const descriptionRef = useScrollAnimation<HTMLParagraphElement>({ animationClass: 'animate-fade-in', delay: 200 });
 
   const features = [
     {
@@ -25,11 +24,11 @@ const About = () => {
   ];
 
   const FeatureCard = ({ feature, index }: { feature: typeof features[0], index: number }) => {
-    const cardRef = useScrollAnimation({ 
+    const cardRef = useScrollAnimation<HTMLDivElement>({ 
       animationClass: 'animate-fade-in', 
       delay: 400 + (index * 200) 
     });
-    const hoverRef = use3DHover();
+    const hoverRef = use3DHover<HTMLDivElement>();
 
     return (
       <div 

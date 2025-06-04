@@ -8,8 +8,8 @@ interface ScrollAnimationOptions {
   delay?: number;
 }
 
-export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
-  const elementRef = useRef<HTMLElement>(null);
+export const useScrollAnimation = <T extends HTMLElement = HTMLElement>(options: ScrollAnimationOptions = {}) => {
+  const elementRef = useRef<T>(null);
 
   useEffect(() => {
     const element = elementRef.current;
@@ -43,8 +43,8 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
   return elementRef;
 };
 
-export const useParallax = (speed: number = 0.5) => {
-  const elementRef = useRef<HTMLElement>(null);
+export const useParallax = <T extends HTMLElement = HTMLElement>(speed: number = 0.5) => {
+  const elementRef = useRef<T>(null);
 
   useEffect(() => {
     const element = elementRef.current;
@@ -63,8 +63,8 @@ export const useParallax = (speed: number = 0.5) => {
   return elementRef;
 };
 
-export const use3DHover = () => {
-  const elementRef = useRef<HTMLElement>(null);
+export const use3DHover = <T extends HTMLElement = HTMLElement>() => {
+  const elementRef = useRef<T>(null);
 
   useEffect(() => {
     const element = elementRef.current;

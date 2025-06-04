@@ -1,10 +1,9 @@
-
 import { useState } from 'react';
 import { useScrollAnimation, use3DHover } from '../hooks/useScrollAnimations';
 
 const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState<number | null>(null);
-  const titleRef = useScrollAnimation({ animationClass: 'animate-fade-in' });
+  const titleRef = useScrollAnimation<HTMLHeadingElement>({ animationClass: 'animate-fade-in' });
   
   const products = [
     {
@@ -34,11 +33,11 @@ const Products = () => {
   ];
 
   const ProductCard = ({ product, index }: { product: typeof products[0], index: number }) => {
-    const cardRef = useScrollAnimation({ 
+    const cardRef = useScrollAnimation<HTMLDivElement>({ 
       animationClass: 'animate-fade-in', 
       delay: index * 200 
     });
-    const hoverRef = use3DHover();
+    const hoverRef = use3DHover<HTMLDivElement>();
     const isSelected = selectedProduct === index;
 
     return (
@@ -66,7 +65,6 @@ const Products = () => {
           
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent" />
           
-          {/* Hover Effect Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#B56D57]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
           <div className={`absolute bottom-0 left-0 right-0 p-6 transition-all duration-500 ${isSelected ? 'p-8' : ''}`}>
@@ -95,7 +93,6 @@ const Products = () => {
             </button>
           </div>
 
-          {/* Selection Indicator */}
           {isSelected && (
             <div className="absolute top-4 right-4 w-3 h-3 rounded-full animate-pulse" 
                  style={{ backgroundColor: '#B56D57' }} />
@@ -107,7 +104,6 @@ const Products = () => {
 
   return (
     <section id="loja" className="py-20 bg-zinc-950 relative overflow-hidden">
-      {/* Animated Background Elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-[#B56D57] rounded-full animate-spin" style={{ animationDuration: '20s' }} />
         <div className="absolute bottom-1/4 left-1/4 w-24 h-24 border border-[#E1B8A5] rotate-45 animate-pulse" style={{ animationDuration: '4s' }} />
