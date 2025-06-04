@@ -1,4 +1,7 @@
 
+import Card3D from './Card3D';
+import GlitchText from './GlitchText';
+
 const Products = () => {
   const products = [
     {
@@ -28,7 +31,16 @@ const Products = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Nossas <span style={{ background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Linhas</span>
+            <GlitchText 
+              text="Nossas "
+              className="inline"
+            />
+            <span style={{ background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <GlitchText 
+                text="Linhas"
+                className="inline"
+              />
+            </span>
           </h2>
           <p className="text-xl text-zinc-300">
             Descubra a excelência em cada corte
@@ -37,8 +49,8 @@ const Products = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product, index) => (
-            <div key={index} className="group cursor-pointer">
-              <div className="relative overflow-hidden rounded-lg bg-zinc-900 border transition-all duration-300 shadow-lg shadow-zinc-950/50" style={{ borderColor: 'rgba(181, 109, 87, 0.2)' }}>
+            <Card3D key={index} className="h-full" intensity={10}>
+              <div className="relative overflow-hidden rounded-lg bg-zinc-900 border transition-all duration-300 shadow-lg shadow-zinc-950/50 h-full" style={{ borderColor: 'rgba(181, 109, 87, 0.2)' }}>
                 <div 
                   className="h-64 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
                   style={{ backgroundImage: `url('${product.image}')` }}
@@ -46,10 +58,12 @@ const Products = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent" />
                 
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">{product.title}</h3>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    <GlitchText text={product.title} />
+                  </h3>
                   <p className="text-zinc-300 text-sm mb-4">{product.description}</p>
                   <button 
-                    className="text-zinc-950 font-semibold px-4 py-2 rounded transition-all duration-300 shadow-lg"
+                    className="text-zinc-950 font-semibold px-4 py-2 rounded transition-all duration-300 shadow-lg hover:scale-105"
                     style={{ 
                       background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`,
                       boxShadow: '0 4px 6px rgba(181, 109, 87, 0.2)'
@@ -59,7 +73,7 @@ const Products = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </Card3D>
           ))}
         </div>
       </div>
