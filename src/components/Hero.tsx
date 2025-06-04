@@ -1,7 +1,6 @@
 
 import { motion } from 'framer-motion';
 import ParallaxSection from './ParallaxSection';
-import GlitchText from './GlitchText';
 
 const Hero = () => {
   const scrollToProducts = () => {
@@ -60,20 +59,14 @@ const Hero = () => {
           transition={{ duration: 1.2, delay: 0.6, ease: [0.25, 0.25, 0.25, 0.75] }}
           className="text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight"
         >
-          <GlitchText 
-            text="Onde o sabor encontra a "
-            className="inline block md:inline"
-          />
+          Onde o sabor encontra a{" "}
           <motion.span 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 1.2 }}
             style={{ background: `linear-gradient(135deg, #B56D57, #E1B8A5, #A4513E)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
           >
-            <GlitchText 
-              text="perfeição"
-              className="inline"
-            />
+            perfeição
           </motion.span>
         </motion.h1>
         

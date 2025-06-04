@@ -1,6 +1,5 @@
 
 import Card3D from './Card3D';
-import GlitchText from './GlitchText';
 
 const Products = () => {
   const products = [
@@ -37,15 +36,9 @@ const Products = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            <GlitchText 
-              text="Nossas "
-              className="inline"
-            />
+            Nossas{" "}
             <span style={{ background: `linear-gradient(135deg, #B56D57, #E1B8A5, #A4513E)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-              <GlitchText 
-                text="Linhas"
-                className="inline"
-              />
+              Linhas
             </span>
           </h2>
           <div className="w-24 h-1 mx-auto mb-6 rounded-full" style={{ background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)` }}></div>
@@ -75,7 +68,7 @@ const Products = () => {
                 
                 <div className="absolute bottom-0 left-0 right-0 p-8">
                   <h3 className="text-2xl font-bold text-white mb-3 transform group-hover:translate-y-[-4px] transition-transform duration-300">
-                    <GlitchText text={product.title} />
+                    {product.title}
                   </h3>
                   <p className="text-zinc-300 text-sm mb-6 leading-relaxed opacity-90">{product.description}</p>
                   <button 
