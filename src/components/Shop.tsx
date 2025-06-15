@@ -40,7 +40,7 @@ const Shop = () => {
                 }}
                 onClick={() => window.open('https://wa.me/5551989482390', '_blank')}
               >
-                Visite Nossa Loja
+                Confira
               </button>
             </div>
           </div>

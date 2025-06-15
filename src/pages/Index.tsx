@@ -32,10 +32,16 @@ const Index = () => {
             <About />
           </RevealAnimation>
           <RevealAnimation direction="left" delay={0.1}>
-            <Products />
+            <Shop />
           </RevealAnimation>
           <RevealAnimation direction="right" delay={0.1}>
-            <Shop />
+            <MeatQuality />
+          </RevealAnimation>
+          <RevealAnimation direction="left" delay={0.1}>
+            <Industry />
+          </RevealAnimation>
+          <RevealAnimation direction="right" delay={0.1}>
+            <Products />
           </RevealAnimation>
           <RevealAnimation direction="left" delay={0.1}>
             <Sustainability />
@@ -44,6 +50,9 @@ const Index = () => {
             <HowToOrder />
           </RevealAnimation>
           <RevealAnimation direction="right" delay={0.1}>
+            <Partners />
+          </RevealAnimation>
+          <RevealAnimation direction="left" delay={0.1}>
             <Location />
           </RevealAnimation>
           <Footer />

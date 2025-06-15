@@ -1,27 +1,27 @@
 
-import { ShoppingCart, MessageSquare, Truck, CheckCircle } from 'lucide-react';
+import { MousePointer, ShoppingCart, Calculator, MessageSquare } from 'lucide-react';
 
 const HowToOrder = () => {
   const steps = [
     {
-      icon: ShoppingCart,
-      title: 'Acesse o cardápio',
-      description: 'Navegue por nossa seleção de carnes premium'
+      icon: MousePointer,
+      title: 'CLIQUE AQUI',
+      description: 'De preferência, utilizar o navegador do celular, pois o pedido será finalizado posteriormente via WhatsApp.'
     },
     {
-      icon: CheckCircle,
-      title: 'Selecione os produtos',
-      description: 'Escolha os cortes e quantidades desejadas'
+      icon: ShoppingCart,
+      title: 'Selecione a quantidade de cortes',
+      description: 'Por unidade. O preço é apenas uma aproximação, pois as peças variam de tamanho.'
+    },
+    {
+      icon: Calculator,
+      title: 'Veja a estimativa de preço total',
+      description: 'Você será redirecionado para concluir o pedido via WhatsApp diretamente conosco.'
     },
     {
       icon: MessageSquare,
-      title: 'Finalize pelo WhatsApp',
-      description: 'Complete seu pedido através do nosso WhatsApp'
-    },
-    {
-      icon: Truck,
-      title: 'Receba em casa',
-      description: 'Entregamos com qualidade e segurança'
+      title: 'Concluindo o pedido, confirme via WhatsApp',
+      description: 'Qualquer dúvida, entre em contato conosco pelo número (51) 989482390.'
     }
   ];
 
@@ -42,12 +42,16 @@ const HowToOrder = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Como <span style={{ background: `linear-gradient(135deg, #B56D57, #E1B8A5, #A4513E)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Pedir</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            4 passos para reservar o seu{" "}
+            <span style={{ background: `linear-gradient(135deg, #B56D57, #E1B8A5, #A4513E)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              churrasco completo
+            </span>
+            {" "}na Six Dry Aged
           </h2>
-          <div className="w-24 h-1 mx-auto mb-6 rounded-full" style={{ background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)` }}></div>
-          <p className="text-xl text-zinc-300 max-w-2xl mx-auto">
-            Processo simples e rápido para você
+          <div className="w-24 h-1 mx-auto mb-8 rounded-full" style={{ background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)` }}></div>
+          <p className="text-lg md:text-xl text-zinc-300 max-w-3xl mx-auto italic">
+            "Eleve seu paladar com a qualidade incomparável da Six Dry Aged."
           </p>
         </div>
 
@@ -82,10 +86,10 @@ const HowToOrder = () => {
                        style={{ borderColor: '#E1B8A5', animationDuration: '3s' }}></div>
                 </div>
                 
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-[#E1B8A5] transition-colors duration-300">
+                <h3 className="text-lg md:text-xl font-bold text-white mb-4 group-hover:text-[#E1B8A5] transition-colors duration-300">
                   {step.title}
                 </h3>
-                <p className="text-zinc-400 leading-relaxed">{step.description}</p>
+                <p className="text-zinc-400 leading-relaxed text-sm">{step.description}</p>
               </div>
             ))}
           </div>
