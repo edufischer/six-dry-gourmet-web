@@ -13,6 +13,9 @@ import ScrollProgress from '../components/ScrollProgress';
 import BackToTop from '../components/BackToTop';
 import RevealAnimation from '../components/RevealAnimation';
 import LoadingScreen from '../components/LoadingScreen';
+import MeatQuality from '../components/MeatQuality';
+import Industry from '../components/Industry';
+import Partners from '../components/Partners';
 import { usePreloader } from '../hooks/usePreloader';
 
 const Index = () => {
