@@ -57,9 +57,9 @@ const Footer = () => {
                 <Instagram className="w-5 h-5 text-zinc-950" />
               </button>
             </div>
-            <a href="#" className="text-zinc-400 transition-colors duration-300 text-sm hover:text-[#B56D57]">
+            {/* <a href="#" className="text-zinc-400 transition-colors duration-300 text-sm hover:text-[#B56D57]">
               Política de Privacidade
-            </a>
+            </a> */}
           </div>
         </div>
 

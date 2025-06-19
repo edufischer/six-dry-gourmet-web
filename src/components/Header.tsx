@@ -36,7 +36,7 @@ const Header = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/95 backdrop-blur-md border-b"
       style={{ borderColor: '#B56D57' }}
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.div
