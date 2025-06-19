@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -42,7 +41,11 @@ const Header = () => {
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="text-2xl font-bold cursor-pointer"
-            style={{ background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+            style={{
+              background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}
             onClick={() => smoothScroll('#inicio')}
           >
             Six Dry Aged
@@ -69,7 +72,7 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
+          {/* CTA Button - Desktop */}
           <AnimatedTooltip content="Faça seu pedido via WhatsApp" position="bottom">
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -85,7 +88,7 @@ const Header = () => {
             </motion.button>
           </AnimatedTooltip>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle */}
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -113,10 +116,10 @@ const Header = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden mt-4 py-4 border-t overflow-hidden"
+              className="md:hidden mt-4 py-4 border-t overflow-hidden bg-zinc-950 rounded-b-xl"
               style={{ borderColor: '#B56D57' }}
             >
-              <nav className="flex flex-col space-y-4">
+              <nav className="flex flex-col space-y-4 px-4">
                 {menuItems.map((item, index) => (
                   <motion.a
                     key={item.name}
@@ -133,6 +136,8 @@ const Header = () => {
                     {item.name}
                   </motion.a>
                 ))}
+
+                {/* CTA Mobile */}
                 <motion.button
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
