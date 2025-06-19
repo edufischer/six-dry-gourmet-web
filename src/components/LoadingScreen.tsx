@@ -7,6 +7,14 @@ interface LoadingScreenProps {
 }
 
 const LoadingScreen = ({ isLoading, progress }: LoadingScreenProps) => {
+  const getLoadingMessage = (progress: number) => {
+    if (progress < 30) return 'Carregando imagens...';
+    if (progress < 60) return 'Carregando vídeos...';
+    if (progress < 90) return 'Preparando componentes...';
+    if (progress < 100) return 'Finalizando...';
+    return 'Pronto!';
+  };
+
   return (
     <AnimatePresence>
       {isLoading && (
@@ -41,50 +49,80 @@ const LoadingScreen = ({ isLoading, progress }: LoadingScreenProps) => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-2xl md:text-3xl font-bold text-white mb-8"
+              className="text-2xl md:text-3xl font-bold text-white mb-4"
             >
               Preparando a melhor experiência
             </motion.h2>
 
+            {/* Dynamic Loading Message */}
+            <motion.p
+              key={getLoadingMessage(progress)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              className="text-zinc-400 text-lg mb-8"
+            >
+              {getLoadingMessage(progress)}
+            </motion.p>
+
             {/* Progress Bar */}
             <div className="max-w-md mx-auto mb-4">
-              <div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden">
+              <div className="w-full h-3 bg-zinc-800 rounded-full overflow-hidden shadow-inner">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="h-full rounded-full"
+                  className="h-full rounded-full relative"
                   style={{ 
                     background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`
                   }}
-                />
+                >
+                  {/* Shimmer effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-pulse"></div>
+                </motion.div>
               </div>
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
-                className="text-zinc-400 text-sm mt-2"
-              >
-                {Math.round(progress)}% carregado
-              </motion.p>
+              
+              <div className="flex justify-between items-center mt-3">
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.8 }}
+                  className="text-zinc-400 text-sm"
+                >
+                  {Math.round(progress)}% carregado
+                </motion.p>
+                
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1 }}
+                  className="text-zinc-500 text-xs"
+                >
+                  {progress === 100 ? 'Concluído!' : 'Aguarde...'}
+                </motion.p>
+              </div>
             </div>
 
             {/* Loading Animation */}
             <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              animate={{ rotate: progress < 100 ? 360 : 0 }}
+              transition={{ 
+                duration: 2, 
+                repeat: progress < 100 ? Infinity : 0, 
+                ease: "linear" 
+              }}
               className="w-8 h-8 mx-auto border-2 border-transparent border-t-[#B56D57] rounded-full"
             />
           </div>
 
           {/* Animated Particles */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {[...Array(20)].map((_, i) => (
+            {[...Array(progress < 100 ? 20 : 5)].map((_, i) => (
               <motion.div
                 key={i}
                 initial={{ 
-                  x: Math.random() * window.innerWidth,
-                  y: window.innerHeight + 100,
+                  x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+                  y: (typeof window !== 'undefined' ? window.innerHeight : 800) + 100,
                   opacity: 0
                 }}
                 animate={{
@@ -93,15 +131,39 @@ const LoadingScreen = ({ isLoading, progress }: LoadingScreenProps) => {
                 }}
                 transition={{
                   duration: Math.random() * 3 + 2,
-                  repeat: Infinity,
+                  repeat: progress < 100 ? Infinity : 0,
                   delay: Math.random() * 2,
                   ease: "linear"
                 }}
                 className="absolute w-1 h-1 rounded-full"
-                style={{ backgroundColor: '#B56D57' }}
+                style={{ backgroundColor: progress < 100 ? '#B56D57' : '#E1B8A5' }}
               />
             ))}
           </div>
+
+          {/* Success indicator when complete */}
+          {progress === 100 && (
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="absolute bottom-20 left-1/2 transform -translate-x-1/2"
+            >
+              <div className="w-12 h-12 rounded-full flex items-center justify-center"
+                style={{ background: `linear-gradient(135deg, #B56D57, #E1B8A5, #A4513E)` }}>
+                <motion.svg
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-6 h-6 text-zinc-950"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </motion.svg>
+              </div>
+            </motion.div>
+          )}
         </motion.div>
       )}
     </AnimatePresence>
