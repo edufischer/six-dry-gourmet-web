@@ -29,9 +29,9 @@ const LoadingScreen = ({ isLoading, progress }: LoadingScreenProps) => {
               transition={{ duration: 1, delay: 0.2 }}
               className="mb-8"
             >
-              <img 
-                src="/lovable-uploads/6a6e66c6-fccf-4535-87e8-8c2f373d38a0.png" 
-                alt="Six Dry Aged Logo" 
+              <img
+                src="/images/logo_six.png"
+                alt="Six Dry Aged Logo"
                 className="mx-auto max-w-xs h-auto"
               />
             </motion.div>
@@ -54,7 +54,7 @@ const LoadingScreen = ({ isLoading, progress }: LoadingScreenProps) => {
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   className="h-full rounded-full"
-                  style={{ 
+                  style={{
                     background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`
                   }}
                 />
@@ -82,7 +82,7 @@ const LoadingScreen = ({ isLoading, progress }: LoadingScreenProps) => {
             {[...Array(20)].map((_, i) => (
               <motion.div
                 key={i}
-                initial={{ 
+                initial={{
                   x: Math.random() * window.innerWidth,
                   y: window.innerHeight + 100,
                   opacity: 0

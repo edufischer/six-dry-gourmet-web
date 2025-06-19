@@ -20,7 +20,7 @@ const Hero = () => {
         <div
           className="w-full h-[120%] bg-cover bg-center bg-no-repeat opacity-30"
           style={{
-            backgroundImage: `url('/lovable-uploads/143f93ed-535f-4078-a489-b1f36e3f1289.png')`,
+            backgroundImage: `url('/images/tabua_carne.png')`,
             maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)'
           }}
         />
@@ -44,7 +44,7 @@ const Hero = () => {
         >
           <div className="relative">
             <img
-              src="/lovable-uploads/6a6e66c6-fccf-4535-87e8-8c2f373d38a0.png"
+              src="/images/logo_six.png"
               alt="Six Dry Aged Logo"
               className="mx-auto max-w-xs md:max-w-md lg:max-w-lg h-auto filter drop-shadow-2xl"
             />

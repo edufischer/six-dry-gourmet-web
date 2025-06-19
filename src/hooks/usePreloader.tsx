@@ -9,12 +9,8 @@ export const usePreloader = () => {
     const loadImages = async () => {
       // Lista de todas as imagens do site
       const imageUrls = [
-        '/lovable-uploads/143f93ed-535f-4078-a489-b1f36e3f1289.png',
-        '/lovable-uploads/6a6e66c6-fccf-4535-87e8-8c2f373d38a0.png',
-        'https://images.unsplash.com/photo-1493962853295-0fd70327578a?q=80&w=2070&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?q=80&w=2070&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=2070&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=2070&auto=format&fit=crop'
+        '/images',
+        '/videos',
       ];
 
       let loadedCount = 0;
@@ -35,7 +31,7 @@ export const usePreloader = () => {
 
       try {
         await Promise.all(imagePromises);
-        
+
         // Aguarda um pouco mais para garantir que as animações estão prontas
         setTimeout(() => {
           setProgress(100);
