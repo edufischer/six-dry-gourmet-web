@@ -55,7 +55,7 @@ const Products = () => {
                     boxShadow: '0 8px 32px rgba(181, 109, 87, 0.3)'
                   }}
                 >
-                  Ver cortes
+                  Ver produtos
                 </button>
 
 
@@ -96,7 +96,7 @@ const Products = () => {
                     boxShadow: '0 8px 32px rgba(181, 109, 87, 0.3)'
                   }}
                 >
-                  Ver cortes
+                  Ver produtos
                 </button>
               </div>
             </div>
@@ -135,7 +135,7 @@ const Products = () => {
                     boxShadow: '0 8px 32px rgba(181, 109, 87, 0.3)'
                   }}
                 >
-                  Ver cortes
+                  Ver produtos
                 </button>
               </div>
             </div>

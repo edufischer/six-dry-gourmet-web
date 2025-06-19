@@ -19,6 +19,7 @@ export const usePreloader = () => {
 
         '/videos/loja.mp4',
         '/videos/industria.mp4',
+        '/videos/industria_2.mp4',
       ];
 
       let loadedCount = 0;
