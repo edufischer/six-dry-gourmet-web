@@ -10,7 +10,7 @@ const Header = () => {
   const menuItems = [
     { name: 'Início', href: '#inicio' },
     { name: 'Dry Aged', href: '#dry-aged' },
-    { name: 'GrassFed', href: '#grassfed' },
+    { name: 'Grassfed', href: '#grassfed' },
     { name: 'Loja', href: '#loja' },
     { name: 'Contato', href: '#contato' },
   ];
@@ -28,19 +28,19 @@ const Header = () => {
   };
 
   return (
-    <motion.header 
+    <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.25, 0.25, 0.25, 0.75] }}
-      className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/95 backdrop-blur-md border-b" 
+      className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/95 backdrop-blur-md border-b"
       style={{ borderColor: '#B56D57' }}
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold cursor-pointer" 
+            className="text-2xl font-bold cursor-pointer"
             style={{ background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
             onClick={() => smoothScroll('#inicio')}
           >
@@ -75,7 +75,7 @@ const Header = () => {
               whileTap={{ scale: 0.95 }}
               onClick={handleWhatsApp}
               className="hidden md:block text-zinc-950 font-semibold px-6 py-2 rounded-lg transition-all duration-300 shadow-lg hover:opacity-90"
-              style={{ 
+              style={{
                 background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`,
                 boxShadow: '0 4px 6px rgba(181, 109, 87, 0.2)'
               }}
@@ -112,7 +112,7 @@ const Header = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden mt-4 py-4 border-t overflow-hidden" 
+              className="md:hidden mt-4 py-4 border-t overflow-hidden"
               style={{ borderColor: '#B56D57' }}
             >
               <nav className="flex flex-col space-y-4">
@@ -138,7 +138,7 @@ const Header = () => {
                   transition={{ duration: 0.3, delay: menuItems.length * 0.1 }}
                   onClick={handleWhatsApp}
                   className="text-zinc-950 font-semibold px-6 py-2 rounded-lg transition-all duration-300 w-fit shadow-lg"
-                  style={{ 
+                  style={{
                     background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`,
                     boxShadow: '0 4px 6px rgba(181, 109, 87, 0.2)'
                   }}

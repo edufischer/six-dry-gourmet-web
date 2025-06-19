@@ -76,7 +76,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 1 }}
           className="text-lg md:text-2xl text-zinc-300 mb-12 max-w-3xl mx-auto leading-relaxed"
         >
-          Primeira empresa no Brasil com registro para produção de Dry Aged bovino
+          Primeira empresa no Brasil com registro para produção<br />de Dry Aged bovino
         </motion.p>
 
         <motion.button
