@@ -9,8 +9,9 @@ const Header = () => {
 
   const menuItems = [
     { name: 'Início', href: '#inicio' },
-    { name: 'Dry Aged', href: '#dry-aged' },
+    { name: 'Produtos', href: '#produtos' },
     { name: 'Grassfed', href: '#grassfed' },
+    { name: 'Revenda', href: '#revenda' },
     { name: 'Loja', href: '#loja' },
     { name: 'Contato', href: '#contato' },
   ];

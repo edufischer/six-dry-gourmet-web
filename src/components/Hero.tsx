@@ -97,7 +97,7 @@ const Hero = () => {
             boxShadow: '0 8px 32px rgba(181, 109, 87, 0.3)'
           }}
         >
-          Conheça a Linha Dry Aged
+          Conheça nossa loja
         </motion.button>
       </div>
 
