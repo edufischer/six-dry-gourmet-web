@@ -22,7 +22,7 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-4" style={{ background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Six Dry Aged</h3>
             <p className="text-zinc-400 mb-4">
-              Primeira indústria de Dry Aged certificada do Brasil.
+              Primeira empresa no Brasil com registro para produção de Dry Aged bovino.
               Excelência em cada corte, tradição em cada sabor.
             </p>
           </div>
