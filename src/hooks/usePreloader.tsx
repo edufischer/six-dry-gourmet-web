@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 
 export const usePreloader = () => {
@@ -6,26 +5,34 @@ export const usePreloader = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const loadImages = async () => {
-      // Lista de todas as imagens do site
+    const loadAssets = async () => {
       const imageUrls = [
         '/lovable-uploads/143f93ed-535f-4078-a489-b1f36e3f1289.png',
         '/lovable-uploads/6a6e66c6-fccf-4535-87e8-8c2f373d38a0.png',
-        'https://images.unsplash.com/photo-1493962853295-0fd70327578a?q=80&w=2070&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?q=80&w=2070&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=2070&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=2070&auto=format&fit=crop'
+        '/images/foto_dry_aged.png',
+        '/images/foto_manejo.png',
+        '/images/foto_reserva.png',
+        '/images/foto_wagyu.png',
       ];
 
+      const videoUrls = [
+        '/videos/industria.mp4',
+        '/videos/loja.mp4'
+      ];
+
+      const totalAssets = imageUrls.length + videoUrls.length;
       let loadedCount = 0;
-      const totalImages = imageUrls.length;
+
+      const updateProgress = () => {
+        loadedCount++;
+        setProgress((loadedCount / totalAssets) * 100);
+      };
 
       const imagePromises = imageUrls.map((url) => {
         return new Promise((resolve, reject) => {
           const img = new Image();
           img.onload = () => {
-            loadedCount++;
-            setProgress((loadedCount / totalImages) * 90); // 90% para imagens
+            updateProgress();
             resolve(img);
           };
           img.onerror = reject;
@@ -33,26 +40,34 @@ export const usePreloader = () => {
         });
       });
 
+      const videoPromises = videoUrls.map((url) => {
+        return new Promise((resolve, reject) => {
+          const video = document.createElement('video');
+          video.src = url;
+          video.preload = 'auto';
+          video.oncanplaythrough = () => {
+            updateProgress();
+            resolve(video);
+          };
+          video.onerror = reject;
+        });
+      });
+
       try {
-        await Promise.all(imagePromises);
-        
-        // Aguarda um pouco mais para garantir que as animações estão prontas
+        await Promise.all([...imagePromises, ...videoPromises]);
+
         setTimeout(() => {
-          setProgress(100);
-          setTimeout(() => {
-            setIsLoading(false);
-          }, 500);
-        }, 1000);
+          setIsLoading(false);
+        }, 500); // pequena pausa para suavizar
       } catch (error) {
-        console.log('Erro ao carregar imagens:', error);
-        // Mesmo com erro, remove o loading após um tempo
+        console.log('Erro ao carregar ativos:', error);
         setTimeout(() => {
           setIsLoading(false);
         }, 3000);
       }
     };
 
-    loadImages();
+    loadAssets();
   }, []);
 
   return { isLoading, progress };
