@@ -32,7 +32,7 @@ const Products = () => {
               <div
                 className="h-72 bg-cover bg-center transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                 style={{
-                  backgroundImage: `url('https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?q=80&w=2070&auto=format&fit=crop')`,
+                  backgroundImage: `url('/images/foto_reserva.png')`,
                   borderRadius: '24px 24px 0 0',
                   maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)'
                 }}
@@ -73,7 +73,7 @@ const Products = () => {
               <div
                 className="h-72 bg-cover bg-center transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                 style={{
-                  backgroundImage: `url('https://images.unsplash.com/photo-1493962853295-0fd70327578a?q=80&w=2070&auto=format&fit=crop')`,
+                  backgroundImage: `url('/images/foto_dry_aged.png')`,
                   borderRadius: '24px 24px 0 0',
                   maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)'
                 }}
@@ -112,7 +112,7 @@ const Products = () => {
               <div
                 className="h-72 bg-cover bg-center transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                 style={{
-                  backgroundImage: `url('https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=2070&auto=format&fit=crop')`,
+                  backgroundImage: `url('/images/foto_wagyu.png')`,
                   borderRadius: '24px 24px 0 0',
                   maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)'
                 }}
