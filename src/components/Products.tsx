@@ -47,7 +47,7 @@ const Products = () => {
                   Cortes nobres selecionados para os paladares mais exigentes.
                 </p>
                 <button
-                  onClick={() => window.location.href = 'https://six-dry-aged.goomer.app/menu?retry=true#674287'}
+                  onClick={() => window.open('https://six-dry-aged.goomer.app/menu?retry=true#674287', '_blank')}
                   className="text-zinc-950 font-semibold px-6 py-3 transition-all duration-500 shadow-xl hover:scale-105 hover:shadow-2xl w-full transform group-hover:translate-y-[-4px]"
                   style={{
                     background: `linear-gradient(135deg, #B56D57, #E1B8A5, #A4513E)`,
@@ -57,6 +57,7 @@ const Products = () => {
                 >
                   Ver cortes
                 </button>
+
 
               </div>
             </div>
