@@ -9,10 +9,10 @@ const Header = () => {
 
   const menuItems = [
     { name: 'Início', href: '#inicio' },
+    { name: 'Loja', href: '#loja' },
     { name: 'Produtos', href: '#produtos' },
     { name: 'Grassfed', href: '#grassfed' },
     { name: 'Revenda', href: '#revenda' },
-    { name: 'Loja', href: '#loja' },
     { name: 'Contato', href: '#contato' },
   ];
 

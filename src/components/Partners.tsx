@@ -3,7 +3,7 @@ import { Handshake } from 'lucide-react';
 
 const Partners = () => {
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section id="revenda" className="relative py-32 overflow-hidden">
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-950 to-zinc-900"></div>
 

@@ -3,7 +3,7 @@ import { Leaf, Heart, MapPin } from 'lucide-react';
 
 const Sustainability = () => {
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section id="grassfed" className="relative py-32 overflow-hidden">
       {/* Organic gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-950 to-zinc-900"></div>
 
