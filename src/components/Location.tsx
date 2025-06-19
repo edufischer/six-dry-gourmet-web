@@ -6,13 +6,14 @@ const Location = () => {
     {
       type: 'Loja Boutique',
       city: 'Porto Alegre/RS',
-      address: 'Rua 24 de Outbro, 1454 - Loja 12. Bairro Auxiliadora',
+      address: 'Rua 24 de Outubro, 1454 - Loja 12. Bairro Auxiliadora',
       hours: 'Seg: 11h às 20h;\nTerc-Sáb: 9h às 20h;\nDom: 10h às 14h'
     },
     {
       type: 'Indústria',
       city: 'Lajeado/RS',
       address: 'Unidade exclusiva para produção interna (não aberta ao público)',
+      hours: 'Seg-Sex: 9h às 17h'
     }
   ];
 
