@@ -9,8 +9,16 @@ export const usePreloader = () => {
     const loadImages = async () => {
       // Lista de todas as imagens do site
       const imageUrls = [
-        '/images',
-        '/videos',
+        '/images/banner.png',
+        '/images/logo_six.png',
+        '/images/tabua_carne.png',
+        '/images/foto_dry_aged.png',
+        '/images/foto_reserva.png',
+        '/images/foto_wagyu.png',
+        '/images/foto_manejo.png',
+
+        '/videos/loja.mp4',
+        '/videos/industria.mp4',
       ];
 
       let loadedCount = 0;
