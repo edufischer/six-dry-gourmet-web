@@ -88,6 +88,7 @@ const Products = () => {
                   Cortes maturados a seco, intensamente saborosos e macios.
                 </p>
                 <button
+                  onClick={() => window.open('https://six-dry-aged.goomer.app/menu?retry=true#674302', '_blank')}
                   className="text-zinc-950 font-semibold px-6 py-3 transition-all duration-500 shadow-xl hover:scale-105 hover:shadow-2xl w-full transform group-hover:translate-y-[-4px]"
                   style={{
                     background: `linear-gradient(135deg, #B56D57, #E1B8A5, #A4513E)`,
@@ -126,6 +127,7 @@ const Products = () => {
                   Carne de gado japonês com marmoreio excepcional.
                 </p>
                 <button
+                  onClick={() => window.open('https://six-dry-aged.goomer.app/menu?retry=true#674303', '_blank')}
                   className="text-zinc-950 font-semibold px-6 py-3 transition-all duration-500 shadow-xl hover:scale-105 hover:shadow-2xl w-full transform group-hover:translate-y-[-4px]"
                   style={{
                     background: `linear-gradient(135deg, #B56D57, #E1B8A5, #A4513E)`,
