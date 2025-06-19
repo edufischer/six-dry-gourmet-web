@@ -22,7 +22,7 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-4" style={{ background: `linear-gradient(to right, #B56D57, #E1B8A5, #A4513E)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Six Dry Aged</h3>
             <p className="text-zinc-400 mb-4">
-              Primeira indústria de Dry Aged certificada do Brasil. 
+              Primeira indústria de Dry Aged certificada do Brasil.
               Excelência em cada corte, tradição em cada sabor.
             </p>
           </div>
@@ -49,7 +49,7 @@ const Footer = () => {
               <button
                 onClick={handleInstagram}
                 className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:opacity-90"
-                style={{ 
+                style={{
                   background: `linear-gradient(135deg, #B56D57, #E1B8A5, #A4513E)`,
                   boxShadow: '0 4px 6px rgba(181, 109, 87, 0.2)'
                 }}
@@ -65,7 +65,7 @@ const Footer = () => {
 
         <div className="border-t mt-8 pt-8 text-center" style={{ borderColor: 'rgba(181, 109, 87, 0.2)' }}>
           <p className="text-zinc-400">
-            © 2024 Six Dry Aged. Todos os direitos reservados.
+            © 2025 Six Dry Aged. Todos os direitos reservados.
           </p>
         </div>
       </div>
