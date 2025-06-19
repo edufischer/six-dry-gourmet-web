@@ -38,7 +38,7 @@ const Shop = () => {
                   borderRadius: '16px',
                   boxShadow: '0 8px 32px rgba(181, 109, 87, 0.3)'
                 }}
-                onClick={() => window.open('https://wa.me/https://g.co/kgs/RuLz1cd', '_blank')}
+                onClick={() => window.open('https://g.co/kgs/RuLz1cd', '_blank')}
               >
                 Ver endereço da loja
               </button>
@@ -47,19 +47,15 @@ const Shop = () => {
 
           {/* Video Placeholder */}
           <div className="relative">
-            <div
-              className="aspect-video bg-zinc-900/60 backdrop-blur-sm border border-zinc-700 flex items-center justify-center text-zinc-400 text-lg font-medium transition-all duration-300 hover:border-[#B56D57] hover:bg-zinc-900/80"
-              style={{ borderRadius: '24px' }}
-            >
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#B56D57] to-[#A4513E] flex items-center justify-center">
-                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M8 5v10l8-5-8-5z" />
-                  </svg>
-                </div>
-                <p>Vídeo da Loja</p>
-                <p className="text-sm text-zinc-500 mt-2">Em breve</p>
-              </div>
+            <div className="aspect-video overflow-hidden rounded-3xl border border-zinc-700 shadow-2xl">
+              <video
+                src="/videos/loja.mov"
+                className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
             </div>
 
             {/* Decorative border */}
@@ -67,6 +63,7 @@ const Shop = () => {
               style={{ background: `linear-gradient(135deg, #B56D57, #E1B8A5, #A4513E)` }}>
             </div>
           </div>
+
         </div>
       </div>
     </section>
