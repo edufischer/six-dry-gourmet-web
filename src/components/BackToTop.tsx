@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,11 +7,7 @@ const BackToTop = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.pageYOffset > 300);
     };
 
     window.addEventListener('scroll', toggleVisibility);
@@ -22,7 +17,7 @@ const BackToTop = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   };
 
@@ -36,8 +31,8 @@ const BackToTop = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-20 right-6 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-40"
-          style={{ 
+          className="fixed bottom-24 right-6 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-40"
+          style={{
             background: `linear-gradient(135deg, #B56D57, #E1B8A5, #A4513E)`,
             boxShadow: '0 4px 15px rgba(181, 109, 87, 0.3)'
           }}
