@@ -22,7 +22,7 @@ export const usePreloader = () => {
 
       // Carrega automaticamente todos os componentes da pasta ui (Vite)
       // Se não estiver usando Vite, use a lista manual comentada abaixo
-      const uiModules = import.meta.glob('../components/ui/*');
+      const uiModules = import.meta.glob('src/components/ui/*');
       const uiComponentPaths = Object.keys(uiModules);
 
       // Lista manual (descomente se não estiver usando Vite)
