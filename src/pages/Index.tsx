@@ -15,10 +15,10 @@ import RevealAnimation from '../components/RevealAnimation';
 import LoadingScreen from '../components/LoadingScreen';
 import Industry from '../components/Industry';
 import Partners from '../components/Partners';
-import { useSmartPreloader } from '../hooks/useSmartPreloader';
+import { usePreloader } from '../hooks/usePreloader';
 
 const Index = () => {
-  const { isLoading, progress } = useSmartPreloader();
+  const { isLoading, progress } = usePreloader();
 
   return (
     <div className="min-h-screen bg-zinc-950">

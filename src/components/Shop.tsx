@@ -1,4 +1,3 @@
-import OptimizedVideo from './OptimizedVideo';
 
 const Shop = () => {
   return (
@@ -46,12 +45,16 @@ const Shop = () => {
             </div>
           </div>
 
-          {/* Video Optimizado */}
+          {/* Video Placeholder */}
           <div className="relative">
             <div className="aspect-video overflow-hidden rounded-3xl border border-zinc-700 shadow-2xl">
-              <OptimizedVideo
+              <video
                 src="/videos/loja.mp4"
                 className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
               />
             </div>
 

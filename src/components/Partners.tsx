@@ -1,17 +1,19 @@
 import { Handshake } from 'lucide-react';
-import OptimizedVideo from './OptimizedVideo';
 
 const Partners = () => {
   return (
     <section id="revenda" className="relative py-32 overflow-hidden">
-      {/* Vídeo de fundo otimizado */}
-      <div className="absolute inset-0 z-0">
-        <OptimizedVideo
-          src="/videos/industria_2.mp4"
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/banner.png"
-        />
-      </div>
+      {/* 📹 Vídeo de fundo */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src="/videos/industria_2.mp4" type="video/mp4" />
+        Seu navegador não suporta vídeos em HTML5.
+      </video>
 
       {/* Overlay escuro para melhor contraste do texto */}
       <div className="absolute inset-0 bg-black/60 z-0"></div>

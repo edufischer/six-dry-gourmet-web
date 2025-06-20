@@ -1,4 +1,3 @@
-import OptimizedVideo from './OptimizedVideo';
 
 const Industry = () => {
   return (
@@ -33,9 +32,13 @@ const Industry = () => {
 
           <div className="relative mt-16">
             <div className="aspect-[16/9] overflow-hidden rounded-3xl border border-zinc-700 shadow-2xl">
-              <OptimizedVideo
+              <video
                 src="/videos/industria.mp4"
                 className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
               />
             </div>
 
