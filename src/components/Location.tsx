@@ -12,7 +12,7 @@ const Location = () => {
     {
       type: 'Indústria',
       city: 'Lajeado/RS',
-      address: 'Unidade exclusiva para produção interna (não aberta ao público)',
+      address: 'Unidade exclusiva para produção (não aberta ao público)',
       hours: 'Seg-Sex: 9h às 17h'
     }
   ];
@@ -90,13 +90,13 @@ const Location = () => {
               borderRadius: '32px',
               boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
             }}>
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.520965013937!2d-51.1944275!3d-30.0219085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519795f086d5719%3A0x382995e76a92fd20!2sSix%20Dry%20Aged!5e0!3m2!1spt-BR!2sbr!4v1750353670602!5m2!1spt-BR!2sbr" 
-              width="100%" 
-              height="450" 
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.520965013937!2d-51.1944275!3d-30.0219085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519795f086d5719%3A0x382995e76a92fd20!2sSix%20Dry%20Aged!5e0!3m2!1spt-BR!2sbr!4v1750353670602!5m2!1spt-BR!2sbr"
+              width="100%"
+              height="450"
               style={{ border: 0, borderRadius: '32px' }}
               allowFullScreen={true}
-              loading="lazy" 
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
