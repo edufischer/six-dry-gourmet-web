@@ -20,93 +20,102 @@ export const usePreloader = () => {
         '/videos/industria_2.mp4',
       ];
 
-      // Carrega automaticamente todos os componentes da pasta ui (Vite)
-      // Se não estiver usando Vite, use a lista manual comentada abaixo
-      const uiModules = import.meta.glob('src/components/ui/*');
-      const uiComponentPaths = Object.keys(uiModules);
+      try {
+        // Carrega todos os componentes da pasta components
+        const componentModules = import.meta.glob('/src/components/*.tsx');
+        const componentPaths = Object.keys(componentModules);
 
-      // Lista manual (descomente se não estiver usando Vite)
-      // const uiComponents = [
-      //   'Button',
-      //   'Card',
-      //   'Modal',
-      //   // ... outros componentes
-      // ];
+        console.log('Componentes encontrados:', componentPaths);
+        console.log('Total de componentes:', componentPaths.length);
+        console.log('Total de mídia:', mediaUrls.length);
 
-      let loadedCount = 0;
-      const totalAssets = mediaUrls.length + uiComponentPaths.length;
+        let loadedCount = 0;
+        const totalAssets = mediaUrls.length + componentPaths.length;
 
-      // Função para atualizar progresso
-      const updateProgress = () => {
-        loadedCount++;
-        setProgress((loadedCount / totalAssets) * 90);
-      };
+        console.log('Total de assets:', totalAssets);
 
-      // Carregar imagens e vídeos
-      const mediaPromises = mediaUrls.map((url) => {
-        return new Promise((resolve, reject) => {
-          if (url.endsWith('.mp4')) {
-            // Para vídeos
-            const video = document.createElement('video');
-            video.onloadeddata = () => {
-              updateProgress();
-              resolve(video);
-            };
-            video.onerror = reject;
-            video.src = url;
-            video.preload = 'metadata';
-          } else {
-            // Para imagens
-            const img = new Image();
-            img.onload = () => {
-              updateProgress();
-              resolve(img);
-            };
-            img.onerror = reject;
-            img.src = url;
+        // Função para atualizar progresso
+        const updateProgress = (type, name) => {
+          loadedCount++;
+          const currentProgress = (loadedCount / totalAssets) * 90;
+          console.log(`Carregado [${type}]: ${name} - Progresso: ${Math.round(currentProgress)}% (${loadedCount}/${totalAssets})`);
+          setProgress(currentProgress);
+        };
+
+        // Carregar imagens e vídeos
+        const mediaPromises = mediaUrls.map((url) => {
+          return new Promise((resolve) => {
+            if (url.endsWith('.mp4')) {
+              // Para vídeos
+              const video = document.createElement('video');
+              video.oncanplaythrough = () => {
+                updateProgress('VIDEO', url);
+                resolve(video);
+              };
+              video.onerror = () => {
+                console.warn(`Erro ao carregar vídeo: ${url}`);
+                updateProgress('VIDEO_ERROR', url);
+                resolve(null);
+              };
+              video.onloadedmetadata = () => {
+                updateProgress('VIDEO', url);
+                resolve(video);
+              };
+              video.src = url;
+              video.preload = 'metadata';
+              video.muted = true; // Necessário para alguns navegadores
+            } else {
+              // Para imagens
+              const img = new Image();
+              img.onload = () => {
+                updateProgress('IMAGE', url);
+                resolve(img);
+              };
+              img.onerror = () => {
+                console.warn(`Erro ao carregar imagem: ${url}`);
+                updateProgress('IMAGE_ERROR', url);
+                resolve(null);
+              };
+              img.src = url;
+            }
+          });
+        });
+
+        // Carregar componentes dinamicamente
+        const componentPromises = componentPaths.map(async (path) => {
+          try {
+            console.log(`Carregando componente: ${path}`);
+            await componentModules[path]();
+            updateProgress('COMPONENT', path.split('/').pop());
+          } catch (error) {
+            console.warn(`Erro ao carregar componente ${path}:`, error);
+            updateProgress('COMPONENT_ERROR', path.split('/').pop());
           }
         });
-      });
 
-      // Carregar componentes UI dinamicamente
-      const componentPromises = uiComponentPaths.map(async (path) => {
-        try {
-          await uiModules[path]();
-          updateProgress();
-        } catch (error) {
-          console.warn(`Erro ao carregar componente ${path}:`, error);
-          updateProgress(); // Continua mesmo com erro
-        }
-      });
-
-      // Se estiver usando lista manual, descomente:
-      // const componentPromises = uiComponents.map(async (componentName) => {
-      //   try {
-      //     await import(`../components/ui/${componentName}`);
-      //     updateProgress();
-      //   } catch (error) {
-      //     console.warn(`Erro ao carregar componente ${componentName}:`, error);
-      //     updateProgress();
-      //   }
-      // });
-
-      try {
         // Carrega tudo em paralelo
+        console.log('Iniciando carregamento de todos os assets...');
         await Promise.all([...mediaPromises, ...componentPromises]);
 
-        // Aguarda um pouco mais para garantir que tudo está pronto
+        console.log('Todos os assets carregados! Finalizando preloader...');
+
+        // Finaliza o carregamento
         setTimeout(() => {
           setProgress(100);
           setTimeout(() => {
             setIsLoading(false);
           }, 500);
-        }, 1000);
+        }, 500);
+
       } catch (error) {
-        console.log('Erro ao carregar assets:', error);
+        console.error('Erro geral ao carregar assets:', error);
         // Mesmo com erro, remove o loading após um tempo
         setTimeout(() => {
-          setIsLoading(false);
-        }, 3000);
+          setProgress(100);
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 500);
+        }, 2000);
       }
     };
 
