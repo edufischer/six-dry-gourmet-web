@@ -41,12 +41,16 @@ export const useSmartPreloader = () => {
         console.log('Iniciando carregamento inteligente...');
         console.log('Mobile:', isMobile, 'Conexão lenta:', isSlowConnection);
 
+        // Tempo mínimo de loading baseado no dispositivo
+        const minLoadingTime = isSlowConnection ? 3000 : isMobile ? 2500 : 2000;
+        const startTime = Date.now();
+
         let loadedCount = 0;
         const totalCritical = config.priorityImages.length + (isMobile ? 0 : config.criticalVideos.length);
 
         const updateProgress = (type: string, name: string) => {
           loadedCount++;
-          const currentProgress = (loadedCount / totalCritical) * 100;
+          const currentProgress = Math.min((loadedCount / totalCritical) * 85, 85); // Máximo 85% para assets críticos
           console.log(`✅ Carregado [${type}]: ${name} - ${Math.round(currentProgress)}%`);
           setProgress(currentProgress);
         };
@@ -91,47 +95,69 @@ export const useSmartPreloader = () => {
         // Carregar assets críticos
         await Promise.all([...priorityPromises, ...videoPromises]);
 
+        // Garantir tempo mínimo de loading
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+
+        if (remainingTime > 0) {
+          console.log(`⏳ Aguardando ${remainingTime}ms para experiência suave...`);
+          
+          // Animação suave do progresso durante a espera
+          const steps = Math.ceil(remainingTime / 50);
+          const progressIncrement = (100 - progress) / steps;
+          
+          for (let i = 0; i < steps; i++) {
+            await new Promise(resolve => setTimeout(resolve, 50));
+            setProgress(prev => Math.min(prev + progressIncrement, 100));
+          }
+        }
+
         console.log('🚀 Assets críticos carregados! Removendo loader...');
 
-        // Finalizar loading rapidamente
+        // Finalizar loading
+        setProgress(100);
+        await new Promise(resolve => setTimeout(resolve, 200));
+        setIsLoading(false);
+        
+        // Iniciar carregamento lazy em background após um delay
         setTimeout(() => {
-          setProgress(100);
-          setIsLoading(false);
-          
-          // Iniciar carregamento lazy em background
           if (!isSlowConnection) {
-            setTimeout(() => loadLazyAssets(config), 1000);
+            loadLazyAssets(config);
           }
-        }, 300);
+        }, 1500);
 
       } catch (error) {
         console.error('❌ Erro no carregamento inteligente:', error);
-        // Remover loader mesmo com erro
+        // Remover loader mesmo com erro, mas com delay mínimo
         setTimeout(() => {
           setProgress(100);
           setIsLoading(false);
-        }, 1000);
+        }, isSlowConnection ? 2000 : 1500);
       }
     };
 
     const loadLazyAssets = (config: PreloadConfig) => {
       console.log('📦 Iniciando carregamento lazy em background...');
       
-      // Carregar imagens lazy
-      config.lazyImages.forEach((url) => {
-        const img = new Image();
-        img.onload = () => console.log(`🖼️ Lazy loaded: ${url}`);
-        img.src = url;
+      // Carregar imagens lazy com delay escalonado
+      config.lazyImages.forEach((url, index) => {
+        setTimeout(() => {
+          const img = new Image();
+          img.onload = () => console.log(`🖼️ Lazy loaded: ${url}`);
+          img.src = url;
+        }, index * 200);
       });
 
-      // Carregar vídeos apenas quando necessário (não no mobile com conexão lenta)
+      // Pré-carregar metadados dos vídeos (não no mobile com conexão lenta)
       if (!isMobile || !isSlowConnection) {
-        config.deferredVideos.forEach((url) => {
-          const video = document.createElement('video');
-          video.oncanplaythrough = () => console.log(`🎥 Video cached: ${url}`);
-          video.src = url;
-          video.preload = 'none'; // Só carrega quando requisitado
-          video.muted = true;
+        config.deferredVideos.forEach((url, index) => {
+          setTimeout(() => {
+            const video = document.createElement('video');
+            video.onloadedmetadata = () => console.log(`🎥 Video metadata cached: ${url}`);
+            video.src = url;
+            video.preload = 'metadata';
+            video.muted = true;
+          }, 1000 + (index * 300));
         });
       }
     };
